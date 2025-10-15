@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KARTHIKEYAN ALAGARSAMY — nanotechnogist Portfolio</title>
+  <meta name="description" content="Professional frontend developer portfolio. Replace placeholder text and images with your content." />
+  <style>
+    /* ---------- Variables ---------- */
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7dd3fc; --glass:rgba(255,255,255,0.04);
+      --max-width:1100px; --radius:14px; --gap:20px; --ff-sans:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:var(--ff-sans);background:linear-gradient(180deg,#071022 0%, #071528 100%);color:#e6eef6}
+    a{color:var(--accent);text-decoration:none}
+    .wrap{max-width:var(--max-width);margin:32px auto;padding:28px;display:grid;grid-template-columns:1fr;gap:var(--gap)}
+
+    /* ---------- Header ---------- */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;font-weight:700;color:#04263b}
+    nav{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);font-size:0.95rem}
+
+    /* ---------- Hero (photo + intro) ---------- */
+    .hero{display:grid;grid-template-columns:320px 1fr;gap:28px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:22px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    .photo{width:320px;height:320px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#072032,#0e2a3e);display:flex;align-items:center;justify-content:center}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .intro{padding:6px 4px}
+    .name{font-size:1.9rem;font-weight:700;margin:0 0 6px}
+    .role{color:var(--muted);margin:0 0 16px}
+    .summary{line-height:1.5;color:#cfe6fb;margin-bottom:16px}
+    .social{display:flex;gap:10px}
+    .social a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.02);border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* ---------- Two-column content ---------- */
+    .grid-two{display:grid;grid-template-columns:1fr 360px;gap:var(--gap);}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* ---------- Skills ---------- */
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .skill{display:flex;flex-direction:column;gap:8px}
+    .skill .label{display:flex;justify-content:space-between;font-size:0.9rem;color:var(--muted)}
+    .bar{height:10px;background:rgba(255,255,255,0.05);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa);border-radius:999px}
+
+    /* ---------- Projects ---------- */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .project{display:flex;flex-direction:column;gap:10px}
+    .project .thumb{height:120px;border-radius:10px;overflow:hidden;background:#081422;display:flex;align-items:center;justify-content:center}
+
+    /* ---------- Certificates carousel ---------- */
+    .cert-wrap{display:flex;align-items:flex-start;gap:8px;margin-top:8px}
+    .cert-btn{background:rgba(255,255,255,0.03);border:5px solid rgba(255,255,255,0.04);color:var(--accent);padding:8px 12px;margin-top: 40px; border-radius:8px;cursor:pointer}
+    .cert-btn[disabled]{opacity:0.4;cursor:default}
+    .cert-viewport{flex:1;overflow:hidden}
+    .cert-track{display:flex;gap:8px}
+    .cert-item{flex:0 0 33.333%;display:none}
+    .cert-item.show{display:block}
+    .cert-item img{width:100%;height:120px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+    @media (max-width:900px){
+      .cert-item{flex:0 0 50%}
+    }
+    @media (max-width:480px){
+      .cert-item{flex:0 0 100%}
+    }
+
+    /* ---------- Education / Resume ---------- */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .timeline .item{display:flex;gap:12px}
+    .timeline .item .year{min-width:72px;color:var(--muted)}
+
+    /* ---------- Contact ---------- */
+    .contact-list{display:flex;flex-direction:column;gap:10px}
+    .contact-row{display:flex;gap:12px;align-items:center}
+
+    /* ---------- Footer ---------- */
+    footer{text-align:center;color:var(--muted);padding:18px}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .grid-two{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+    }
+
+    @media (max-width:480px){
+      .wrap{padding:16px;margin:12px}
+      .brand .logo{width:40px;height:40px}
+      .photo{height:260px}
+    }
+
+    /* small utility */
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">kA</div>
+        <div>
+          <div style="font-weight:700">KARTHIKEYAN ALAGARSAMY</div>
+          <div class="muted" style="font-size:0.9rem">Nanotechnologist</div>
+        </div>
+      </div>
+      <nav area hidden>
+        <a class="btn" href="#about">About</a>
+        <a class="btn" href="#project">Project</a>
+        <a class="btn" href="#skills">Skills</a>
+        <a class="btn" href="#contact">Contact</a>
+       
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="Hero">
+      <div class="photo" role="img" aria-label="Your portrait">
+        <!-- Replace src with your image file or url -->
+       <div>
+        <img src="./images/photo-1.jpg" alt="My photo"/>
+      </div>
+      
+      </div>
+
+      <div class="intro">
+        <h1 class="name">Hi, I'm KARTHIKEYAN ALAGARSAMY</h1>
+        <p class="role">Nanotechnologist </p>
+        <p class="summary">Hello,I'm a Nanotechnologist who sees potential in the smallest things.
+Through atoms and ideas, I build pathways to a smarter, sustainable world using way of Nanotechnology</p>
+
+        <div class="social" aria-hidden>
+          <a href="#contact">📧 Email</a>
+          <a href="#contact">📞 Phone</a>
+          <a href="#contact">🐙 LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <main class="grid-two" style="margin-top:12px">
+      <section>
+        <div id="about" class="card">
+          <h2 style="margin-top:0">About me</h2>
+          <p class="muted">Short bio / elevator pitch</p>
+          <p>My journey in Nanoscience has been driven by curiosity to manipulate matter atom by atom and engineer quantum materials, especially quantum dots, for transformative applications in medicine, energy, and electronics. Equipped with hands-on experience in advanced characterization techniques, simulation tools, and Nanomaterial synthesis.</p>
+
+          
+        </div>
+        <div id="skills">
+          <h2 style="margin-top: 0%;">Skills</h2>
+          <h3 class="muted">Computer Skills</h3>
+         <ul>
+          <li>MS Office(Word/Excel/PowerPoint)</li>
+          <li>Image J Software</li>
+          <li>Orgin pro-8</li>
+          <li>Mat Lab</li>
+          <li>Basic of Avogadro</li>
+          </ul>
+          <h3 class="muted">Instrumentation Handling</h3>
+          <ul>
+          <li>UV Spectroscopy</li>
+          <li>Photoluminescence Spectroscopy</li>
+          <li>Electrochemical Analyzer</li>
+          <li>Light Microscope</li>
+          <li>Spin Coating</li>
+          </ul>
+        </div>
+
+        <div id="Certificates" class="card" style="margin-top:var(--gap)">
+          <h2 style="margin-top:0">Certificates</h2>
+          <p class="muted">Click an image to open full-size. Use Next / Back to browse.</p>
+
+          <div class="cert-wrap" aria-label="Certificates carousel">
+            <button class="cert-btn prev" aria-label="Back">‹</button>
+            <div class="cert-viewport" role="region" aria-live="polite">
+               <div class="cert-track" id="certTrack">
+                <div class="cert-item"><img src="./Certificates Img/IWEM-2025.jpg" alt="IWEM-2025"></div>
+                <div class="cert-item"><img src="./Certificates%20Img/Scientific Writing-2023.jpg" alt="Scientific Writing 2023" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x200?text=No+Image'"></div>
+                <div class="cert-item"><img src="./Certificates%20Img/ICANEE-2023-1.jpg" alt="ICANEE 2023 - 1" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x200?text=No+Image'"></div>
+                <div class="cert-item"><img src="./Certificates%20Img/ICANEE-2023-2.jpg" alt="ICANEE 2023 - 2" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x200?text=No+Image'"></div>
+                <div class="cert-item"><img src="./Certificates%20Img/Value Added Course-3-2023.jpg" alt="Value Added Course 3 - 2023" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x200?text=No+Image'"></div>
+                <div class="cert-item"><img src="./Certificates%20Img/Certificate Course-2022.jpg" alt="Certificate Course 2022" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x200?text=No+Image'"></div>
+                <div class="cert-item"><img src="./Certificates%20Img/Value Added Course-1-2022.jpg" alt="Value Added Course 1 - 2022" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x200?text=No+Image'"></div>
+                <div class="cert-item"><img src="./Certificates%20Img/Value Added Course-2-2022.jpg" alt="Value Added Course 2 - 2022" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x200?text=No+Image'"></div>
+                <div class="cert-item"><img src="./Certificates%20Img/Science Exhibition-2015.jpg" alt="Science Exhibition 2015" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x200?text=No+Image'"></div>
+                <div class="cert-item"><img src="./Certificates%20Img/DGA-2011.jpg" alt="DGA 2011" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x200?text=No+Image'"></div>
+              </div>
+            </div>
+            <button class="cert-btn next" aria-label="Next">›</button>
+          </div>
+          <div style="margin-top:8px"><small class="muted">Showing 3 at a time on desktop</small></div>
+ 
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0">Resume</h3>
+          <p class="muted">Download or open a shorter resume</p>
+          <p><a href="./document/Curriculum Vitae .pdf">Download resume (PDF)</a></p>
+          <hr />
+          <h3>Contact</h3>
+          <div id="contact" class="contact-list">
+            <div class="contact-row"><strong>Email</strong><span class="muted">nanoak705@gmail</span></div>
+            <div class="contact-row"><strong>Phone</strong><span class="muted">+91 7094615329</span></div>
+            <div class="contact-row"><strong>Instagram</strong><span class="muted">Nanotechronix</span></div>
+            <div class="contact-row"><strong>LinkedIn</strong><span class="muted">Karthikeyan Alagarsamy</span></div>
+            <div class="contact-row"><strong>Location</strong><span class="muted">Sivaganga, TamilNadu</span></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:var(--gap)">
+          <h3 style="margin-top:0">Education</h3>
+          <div class="timeline">
+            <div class="item"><div class="year">2022–2024</div><div><strong>Master's in Nanoscience and Technology</strong><div class="muted">Alagappa University,Karaikudi</div></div></div>
+            <div class="item"><div class="year">2019–2022</div><div><strong>Bachelor's in Physics</strong><div class="muted">JJ College of Arts and Science,Pudukkottai</div></div></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:var(--gap)">
+          <h3 id="btn"style="margin-top:0">Project</h3>
+    
+          <div style="display:flex;gap:8px;margin-top:12px">
+            
+            <a class="btn" href="./document/Master's  Project.pdf">View projects</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <small>© copy rights <span id="year"></span>  — Built with Karthikeyan Alagarsamy❤️</small>
+    </footer>
+  </div>
+
+  <script>
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Certificates carousel: show items and handle next/back
+    (function(){
+      const items = Array.from(document.querySelectorAll('.cert-item'));
+      if(!items.length) return;
+      const prevBtn = document.querySelector('.cert-btn.prev');
+      const nextBtn = document.querySelector('.cert-btn.next');
+      const getPerView = () => {
+        if(window.matchMedia('(max-width:480px)').matches) return 1;
+        if(window.matchMedia('(max-width:900px)').matches) return 2;
+        return 3;
+      };
+      let start = 0;
+      function render(){
+        const per = getPerView();
+        items.forEach((it,i)=> it.classList.toggle('show', i>=start && i< start+per));
+        prevBtn.disabled = start === 0;
+        nextBtn.disabled = start + per >= items.length;
+      }
+      prevBtn.addEventListener('click', ()=> { start = Math.max(0, start - getPerView()); render(); });
+      nextBtn.addEventListener('click', ()=> { start = Math.min(Math.max(0, items.length - getPerView()), start + getPerView()); render(); });
+      // click to open full-size
+      items.forEach(it=>{
+        const img = it.querySelector('img');
+        if(!img) return;
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', e => window.open(e.target.src, '_blank'));
+      });
+      window.addEventListener('resize', ()=> {
+        const per = getPerView();
+        if(start + per > items.length) start = Math.max(0, items.length - per);
+        render();
+      });
+      // initial
+      render();
+    })();
+  </script>
+</body>
+</html>
